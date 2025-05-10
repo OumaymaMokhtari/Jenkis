@@ -2,20 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Afficher la version Docker') {
             steps {
-                echo 'Étape de compilation'
+                sh 'docker --version'
             }
         }
-        stage('Test') {
+
+        stage('Lancer hello-world') {
             steps {
-                echo 'Étape de test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Étape de déploiement'
+                sh 'docker run hello-world'
             }
         }
     }
 }
+
